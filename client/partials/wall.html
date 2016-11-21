@@ -1,0 +1,21 @@
+<!-- wall partial -->
+<div>
+	WALL PARTIAL!!!
+	Currently Logged In: {{currentUser}}
+	<button ng-click="logout();">Logout.</button>
+<hr>
+Post a message: <input type="text" ng-model="newMessage.text"><br>
+<button ng-click=postMessage();>Submit message.</button>
+<div>
+	<ul>
+		<li ng-repeat="message in messageList">
+		Created by: {{message.createdBy}} | Message says: {{message.text}}. Message created at: {{message.createdAt}} | <button ng-click="deleteMessage(message._id)">Delete this message and its comments.</button>
+		*****Comments*****
+		<ul><li ng-repeat="comment in message.comments">{{comment.commentText}}</li></ul>
+		 | Add a comment:
+		<input type="text" ng-model="newComment.text">
+		<button ng-click="addComment(newComment, message._id);">Add comment.</button>
+		</li>
+	</ul>
+</div>
+</div>	
